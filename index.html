@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GW // Arsenal — Tactical Systems Programming Language</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#050709">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=VT323&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<div class="grid-bg"></div>
+<div class="scan-beam"></div>
+
+<!-- Boot screen -->
+<div class="boot-overlay" id="boot">
+  <div class="line l1">▶ INITIALIZING ARSENAL ////////</div>
+  <div class="line l2">▶ MOUNTING PHILOSOPHERS LIB</div>
+  <div class="line l3">▶ STATUS // OK</div>
+  <div class="line l4">▶ GW // ONLINE</div>
+</div>
+
+<!-- ============================================================
+     NAV
+     ============================================================ -->
+<nav class="top">
+  <div class="inner">
+    <a href="#" class="brand-mark">
+      <div class="mark-box">GW</div>
+      <span class="brand-meta">v1.0 // ARSENAL</span>
+    </a>
+    <ul>
+      <li><a href="#briefing">Briefing</a></li>
+      <li><a href="#capabilities">Capabilities</a></li>
+      <li><a href="#code">Specimen</a></li>
+      <li><a href="#specs">Specs</a></li>
+      <li><a href="#install">Install</a></li>
+      <li><a href="#">Docs</a></li>
+      <li><a href="#">Source</a></li>
+    </ul>
+    <a href="#install" class="nav-cta">Get Arsenal</a>
+  </div>
+</nav>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<header class="hero">
+  <div class="hero-meta-top">
+    <div class="left">
+      <span>FOB:01</span>
+      <span>SECTOR // ARSENAL</span>
+      <span>BUILD 1.0.0</span>
+    </div>
+    <div class="right">
+      <span>00:00:00 UTC</span>
+      <span class="status">SYS OK</span>
+    </div>
+  </div>
+
+  <div class="hero-mark bracketed">
+    <span class="corner tl"></span>
+    <span class="corner tr"></span>
+    <span class="corner bl"></span>
+    <span class="corner br"></span>
+    <span class="reg-tag tl">// 0001</span>
+    <span class="reg-tag tr">// LANG.RT</span>
+    <span class="reg-tag bl">x86_64 / aarch64 / wasm</span>
+    <span class="reg-tag br">▲ READY</span>
+    <div class="scanline"></div>
+    <div class="gw">GW</div>
+  </div>
+
+  <h1 class="tagline">A <span class="accent">tactical</span> systems language for operators who ship</h1>
+  <p class="sub">
+    Single-pass JIT compilation. Three-tier memory safety. Comptime metaprogramming.
+    Cross-compile to anything. The interactive shell is the compiler.
+  </p>
+
+  <div class="hero-ctas">
+    <a href="#install" class="btn btn-primary">Deploy <span class="arrow">▶▶</span></a>
+    <a href="#code" class="btn btn-secondary">Read Specimen <span class="arrow">▸</span></a>
+  </div>
+
+  <div class="hero-telemetry">
+    <div class="stat"><span class="v">1M</span><span class="l">LOC/S/CORE</span></div>
+    <div class="stat"><span class="v">3</span><span class="l">SAFETY TIERS</span></div>
+    <div class="stat"><span class="v amber">0</span><span class="l">HEADERS</span></div>
+    <div class="stat"><span class="v">∞</span><span class="l">COMPTIME</span></div>
+    <div class="stat"><span class="v">8+</span><span class="l">TARGETS</span></div>
+  </div>
+</header>
+
+<!-- ============================================================
+     BRIEFING
+     ============================================================ -->
+<section id="briefing" class="briefing">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="num">// 01</span>
+      <h2>Mission Briefing</h2>
+      <span class="meta">Doc-ID: GW-DOC-001<br>Classified: PUBLIC</span>
+      <div class="ruler dotted-rule"></div>
+    </div>
+
+    <div class="panel bracketed reveal">
+      <span class="corner tl"></span>
+      <span class="corner tr"></span>
+      <span class="corner bl"></span>
+      <span class="corner br"></span>
+
+      <div class="briefing-head">
+        <span class="l">▶ TRANSMISSION OPEN</span>
+        <span class="r">FREQ: 140.85 // ENC: AES-256</span>
+      </div>
+
+      <p>
+        <span class="hl">GW</span> is a systems programming language for the operators who actually ship —
+        kernel hackers, game-engine engineers, embedded firmware teams, performance-critical infra.
+        It fuses HolyC's <span class="hl">single-pass interactive compilation</span> philosophy with the
+        modern systems toolkit defined by Zig, Odin, Jai, and Rust.
+      </p>
+      <p>
+        No headers. No preprocessor. <span class="hl">Top-level statements execute.</span>
+        Bare strings print. The shell <span class="hl">is</span> the compiler. Allocators are explicit
+        when you want them and ambient when you don't. Memory safety is a gradient — safe by default,
+        <span class="neg">naked</span> when the kernel demands it.
+      </p>
+      <p>
+        Built for the hardware in front of you, cross-compiled to anything else.
+        One binary. One ABI. <span class="hl">Mission complete.</span>
+      </p>
+
+      <div class="briefing-foot">
+        <span>END.TX</span>
+        <span class="ok">▶ ACK</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CAPABILITIES
+     ============================================================ -->
+<section id="capabilities" class="features">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="num">// 02</span>
+      <h2>Capabilities</h2>
+      <span class="meta">06 OF 06 ACTIVE<br>STATUS: NOMINAL</span>
+      <div class="ruler dotted-rule"></div>
+    </div>
+
+    <div class="feature-grid reveal">
+      <!-- 01 -->
+      <article class="feature">
+        <span class="corner tl"></span><span class="corner tr"></span>
+        <span class="corner bl"></span><span class="corner br"></span>
+        <div class="feature-head">
+          <span class="id">SYS-01 // CORE</span>
+          <span class="ok">●</span>
+        </div>
+        <div class="feature-icon">
+          <svg viewBox="0 0 48 48"><path d="M6 24 L18 12 L24 18 L36 6 L42 12 L42 36 L6 36 Z"/><path d="M6 30 L42 30"/></svg>
+        </div>
+        <h3>Single-Pass Compilation</h3>
+        <p>Direct-to-machine-code TPDE-style backend. Target throughput: 1M lines per second per core. The edit-build-run loop disappears.</p>
+        <span class="keyword">▶ arsenal build --fast</span>
+      </article>
+
+      <!-- 02 -->
+      <article class="feature">
+        <span class="corner tl"></span><span class="corner tr"></span>
+        <span class="corner bl"></span><span class="corner br"></span>
+        <div class="feature-head">
+          <span class="id">SYS-02 // SAFETY</span>
+          <span class="ok">●</span>
+        </div>
+        <div class="feature-icon">
+          <svg viewBox="0 0 48 48"><path d="M24 4 L40 12 L40 28 C40 36 32 42 24 44 C16 42 8 36 8 28 L8 12 Z"/><path d="M18 24 L22 28 L30 18"/></svg>
+        </div>
+        <h3>Memory Safety Gradient</h3>
+        <p>Three tiers: <span style="color:var(--cyan-primary)">safe</span> (region-checked references), <span style="color:var(--amber)">manual</span> (opt-out borrow check), <span style="color:var(--red-alert)">naked</span> (full unsafe). Pick the right altitude.</p>
+        <span class="keyword">▶ safe / manual / naked</span>
+      </article>
+
+      <!-- 03 -->
+      <article class="feature">
+        <span class="corner tl"></span><span class="corner tr"></span>
+        <span class="corner bl"></span><span class="corner br"></span>
+        <div class="feature-head">
+          <span class="id">SYS-03 // META</span>
+          <span class="ok">●</span>
+        </div>
+        <div class="feature-icon">
+          <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="6"/><circle cx="24" cy="24" r="14"/><circle cx="24" cy="24" r="22"/><path d="M24 2 L24 10 M24 38 L24 46 M2 24 L10 24 M38 24 L46 24"/></svg>
+        </div>
+        <h3>Comptime Engine</h3>
+        <p>Run any GW code at compile time inside <span style="color:var(--cyan-primary)">#virtuous</span> blocks. Generate types, derive serializers, embed assets. One mechanism replaces macros, templates, and codegen.</p>
+        <span class="keyword">▶ #virtuous { ... }</span>
+      </article>
+
+      <!-- 04 -->
+      <article class="feature">
+        <span class="corner tl"></span><span class="corner tr"></span>
+        <span class="corner bl"></span><span class="corner br"></span>
+        <div class="feature-head">
+          <span class="id">SYS-04 // DEPLOY</span>
+          <span class="ok">●</span>
+        </div>
+        <div class="feature-icon">
+          <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="20"/><path d="M4 24 L44 24 M24 4 C32 12 32 36 24 44 M24 4 C16 12 16 36 24 44"/></svg>
+        </div>
+        <h3>Cross-Compilation</h3>
+        <p>Bundled libcs for musl, glibc, mingw-w64, Apple SDK, wasi-libc. Linux, macOS, Windows, FreeBSD, WASM, freestanding. Target triple is a flag.</p>
+        <span class="keyword">▶ --target aarch64-macos</span>
+      </article>
+
+      <!-- 05 -->
+      <article class="feature">
+        <span class="corner tl"></span><span class="corner tr"></span>
+        <span class="corner bl"></span><span class="corner br"></span>
+        <div class="feature-head">
+          <span class="id">SYS-05 // ASYNC</span>
+          <span class="ok">●</span>
+        </div>
+        <div class="feature-icon">
+          <svg viewBox="0 0 48 48"><path d="M8 16 L16 16 M32 16 L40 16 M8 32 L16 32 M32 32 L40 32"/><rect x="16" y="10" width="16" height="12"/><rect x="16" y="26" width="16" height="12"/><path d="M24 22 L24 26"/></svg>
+        </div>
+        <h3>Fox Tasks &amp; Channels</h3>
+        <p>M:N work-stealing scheduler. Lightweight <span style="color:var(--cyan-primary)">fox</span> tasks, typed bounded channels, structured concurrency via <span style="color:var(--cyan-primary)">nursery</span> blocks. io_uring/kqueue/IOCP under the hood.</p>
+        <span class="keyword">▶ fox / nursery / await</span>
+      </article>
+
+      <!-- 06 -->
+      <article class="feature">
+        <span class="corner tl"></span><span class="corner tr"></span>
+        <span class="corner bl"></span><span class="corner br"></span>
+        <div class="feature-head">
+          <span class="id">SYS-06 // INTEROP</span>
+          <span class="ok">●</span>
+        </div>
+        <div class="feature-icon">
+          <svg viewBox="0 0 48 48"><path d="M14 14 L34 34 M34 14 L14 34"/><circle cx="14" cy="14" r="4"/><circle cx="34" cy="14" r="4"/><circle cx="14" cy="34" r="4"/><circle cx="34" cy="34" r="4"/></svg>
+        </div>
+        <h3>C ABI &amp; FFI</h3>
+        <p>Drop in any C header with <span style="color:var(--cyan-primary)">--import-c</span>. Bidirectional C ABI via <span style="color:var(--cyan-primary)">cipher "C"</span>. No bindings file. Inline assembly with named-local visibility.</p>
+        <span class="keyword">▶ extern cipher "C"</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CODE SPECIMEN
+     ============================================================ -->
+<section id="code" class="code-showcase">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="num">// 03</span>
+      <h2>Specimen</h2>
+      <span class="meta">SAMPLE-ID: SP-04<br>SECURE TRANSMISSION</span>
+      <div class="ruler dotted-rule"></div>
+    </div>
+
+    <div class="code-window bracketed reveal">
+      <span class="corner tl"></span><span class="corner tr"></span>
+      <span class="corner bl"></span><span class="corner br"></span>
+
+      <div class="code-titlebar">
+        <div class="code-tabs">
+          <button class="code-tab active" data-pane="hello">▶ Hello</button>
+          <button class="code-tab" data-pane="error">Errors</button>
+          <button class="code-tab" data-pane="generic">Generics</button>
+          <button class="code-tab" data-pane="async">Async</button>
+        </div>
+        <div class="meta">
+          <span>FILE: main.gw</span>
+          <span>UTF-8</span>
+          <span class="ok">● COMPILED</span>
+        </div>
+      </div>
+
+      <div class="code-body">
+        <pre class="pane active" id="pane-hello"><span class="line-no">01</span><span class="tk-cm">// No main() required. Top-level statements execute.</span>
+<span class="line-no">02</span><span class="tk-cm">// Bare string literals invoke Print().</span>
+<span class="line-no">03</span>
+<span class="line-no">04</span><span class="tk-str">"Mission complete.\n"</span><span class="tk-pn">;</span>
+<span class="line-no">05</span>
+<span class="line-no">06</span><span class="tk-kw">let</span> <span class="tk-id">codename</span> <span class="tk-op">=</span> <span class="tk-str">"Snake"</span><span class="tk-pn">;</span>
+<span class="line-no">07</span><span class="tk-str">"Operative // %\n"</span><span class="tk-pn">,</span> <span class="tk-id">codename</span><span class="tk-pn">;</span>
+<span class="line-no">08</span>
+<span class="line-no">09</span><span class="tk-kw">fn</span> <span class="tk-fn">deploy</span><span class="tk-pn">(</span><span class="tk-id">target</span><span class="tk-pn">:</span> <span class="tk-pn">[]</span><span class="tk-ty">u8</span><span class="tk-pn">)</span> <span class="tk-op">-&gt;</span> <span class="tk-ty">u0</span> <span class="tk-pn">{</span>
+<span class="line-no">10</span>    <span class="tk-str">"▶ deploying to %\n"</span><span class="tk-pn">,</span> <span class="tk-id">target</span><span class="tk-pn">;</span>
+<span class="line-no">11</span><span class="tk-pn">}</span>
+<span class="line-no">12</span>
+<span class="line-no">13</span><span class="tk-fn">deploy</span><span class="tk-pn">(</span><span class="tk-str">"Outer Heaven"</span><span class="tk-pn">);</span></pre>
+
+        <pre class="pane" id="pane-error"><span class="line-no">01</span><span class="tk-cm">// Error unions, set inference, foxdie propagation.</span>
+<span class="line-no">02</span>
+<span class="line-no">03</span><span class="tk-kw">liberty</span> <span class="tk-ty">FileError</span> <span class="tk-pn">{</span>
+<span class="line-no">04</span>    <span class="tk-id">NotFound</span><span class="tk-pn">,</span>
+<span class="line-no">05</span>    <span class="tk-id">PermissionDenied</span><span class="tk-pn">,</span>
+<span class="line-no">06</span>    <span class="tk-id">DiskFull</span><span class="tk-pn">,</span>
+<span class="line-no">07</span><span class="tk-pn">}</span>
+<span class="line-no">08</span>
+<span class="line-no">09</span><span class="tk-kw">fn</span> <span class="tk-fn">read_intel</span><span class="tk-pn">(</span><span class="tk-id">path</span><span class="tk-pn">:</span> <span class="tk-pn">[]</span><span class="tk-ty">u8</span><span class="tk-pn">)</span> <span class="tk-op">-&gt;</span> <span class="tk-op">!</span><span class="tk-ty">FileError</span> <span class="tk-ty">Intel</span> <span class="tk-pn">{</span>
+<span class="line-no">10</span>    <span class="tk-kw">let</span> <span class="tk-id">f</span>  <span class="tk-op">=</span> <span class="tk-kw">foxdie</span> <span class="tk-id">fs</span><span class="tk-pn">.</span><span class="tk-fn">open</span><span class="tk-pn">(</span><span class="tk-id">path</span><span class="tk-pn">);</span>
+<span class="line-no">11</span>    <span class="tk-kw">defer</span> <span class="tk-id">f</span><span class="tk-pn">.</span><span class="tk-fn">close</span><span class="tk-pn">();</span>
+<span class="line-no">12</span>    <span class="tk-kw">let</span> <span class="tk-id">bytes</span> <span class="tk-op">=</span> <span class="tk-kw">foxdie</span> <span class="tk-id">f</span><span class="tk-pn">.</span><span class="tk-fn">read_all</span><span class="tk-pn">();</span>
+<span class="line-no">13</span>    <span class="tk-kw">return</span> <span class="tk-kw">foxdie</span> <span class="tk-ty">Intel</span><span class="tk-pn">.</span><span class="tk-fn">parse</span><span class="tk-pn">(</span><span class="tk-id">bytes</span><span class="tk-pn">);</span>
+<span class="line-no">14</span><span class="tk-pn">}</span>
+<span class="line-no">15</span>
+<span class="line-no">16</span><span class="tk-kw">let</span> <span class="tk-id">intel</span> <span class="tk-op">=</span> <span class="tk-fn">read_intel</span><span class="tk-pn">(</span><span class="tk-str">"target.dat"</span><span class="tk-pn">)</span> <span class="tk-kw">catch</span> <span class="tk-op">|</span><span class="tk-id">e</span><span class="tk-op">|</span> <span class="tk-kw">match</span> <span class="tk-id">e</span> <span class="tk-pn">{</span>
+<span class="line-no">17</span>    <span class="tk-ty">FileError</span><span class="tk-pn">.</span><span class="tk-id">NotFound</span> <span class="tk-op">=&gt;</span> <span class="tk-ty">Intel</span><span class="tk-pn">.</span><span class="tk-fn">empty</span><span class="tk-pn">(),</span>
+<span class="line-no">18</span>    <span class="tk-kw">else</span> <span class="tk-op">=&gt;</span> <span class="tk-fn">panic</span><span class="tk-pn">(</span><span class="tk-str">"intel read failed: %"</span><span class="tk-pn">,</span> <span class="tk-id">e</span><span class="tk-pn">),</span>
+<span class="line-no">19</span><span class="tk-pn">};</span></pre>
+
+        <pre class="pane" id="pane-generic"><span class="line-no">01</span><span class="tk-cm">// Comptime generics. ADAM is the trait root; cipher Ord is the constraint.</span>
+<span class="line-no">02</span>
+<span class="line-no">03</span><span class="tk-kw">cipher</span> <span class="tk-ty">Ord</span> <span class="tk-pn">{</span>
+<span class="line-no">04</span>    <span class="tk-kw">fn</span> <span class="tk-fn">cmp</span><span class="tk-pn">(</span><span class="tk-id">self</span><span class="tk-pn">:</span> <span class="tk-op">&amp;</span><span class="tk-ty">Self</span><span class="tk-pn">,</span> <span class="tk-id">other</span><span class="tk-pn">:</span> <span class="tk-op">&amp;</span><span class="tk-ty">Self</span><span class="tk-pn">)</span> <span class="tk-op">-&gt;</span> <span class="tk-ty">i32</span><span class="tk-pn">;</span>
+<span class="line-no">05</span><span class="tk-pn">}</span>
+<span class="line-no">06</span>
+<span class="line-no">07</span><span class="tk-kw">fn</span> <span class="tk-fn">max</span><span class="tk-pn">[</span><span class="tk-ty">T</span><span class="tk-pn">:</span> <span class="tk-ty">ADAM</span><span class="tk-pn">(</span><span class="tk-ty">Ord</span><span class="tk-pn">)](</span><span class="tk-id">a</span><span class="tk-pn">:</span> <span class="tk-ty">T</span><span class="tk-pn">,</span> <span class="tk-id">b</span><span class="tk-pn">:</span> <span class="tk-ty">T</span><span class="tk-pn">)</span> <span class="tk-op">-&gt;</span> <span class="tk-ty">T</span> <span class="tk-pn">{</span>
+<span class="line-no">08</span>    <span class="tk-kw">if</span> <span class="tk-id">a</span><span class="tk-pn">.</span><span class="tk-fn">cmp</span><span class="tk-pn">(</span><span class="tk-op">&amp;</span><span class="tk-id">b</span><span class="tk-pn">)</span> <span class="tk-op">&gt;</span> <span class="tk-num">0</span> <span class="tk-kw">then</span> <span class="tk-id">a</span> <span class="tk-kw">else</span> <span class="tk-id">b</span>
+<span class="line-no">09</span><span class="tk-pn">}</span>
+<span class="line-no">10</span>
+<span class="line-no">11</span><span class="tk-cm">// Build a serializer at compile time from class metadata.</span>
+<span class="line-no">12</span><span class="tk-kw">class</span> <span class="tk-ty">Operative</span> <span class="tk-pn">{</span>
+<span class="line-no">13</span>    <span class="tk-id">codename</span><span class="tk-pn">:</span> <span class="tk-pn">[]</span><span class="tk-ty">u8</span>           <span class="tk-at">@display</span><span class="tk-pn">,</span>
+<span class="line-no">14</span>    <span class="tk-id">rank</span><span class="tk-pn">:</span>     <span class="tk-ty">i32</span>             <span class="tk-at">@range</span><span class="tk-pn">(</span><span class="tk-num">1</span><span class="tk-pn">,</span> <span class="tk-num">10</span><span class="tk-pn">),</span>
+<span class="line-no">15</span>    <span class="tk-id">unit</span><span class="tk-pn">:</span>     <span class="tk-ty">UnitTag</span>         <span class="tk-at">@serialize</span><span class="tk-pn">,</span>
+<span class="line-no">16</span><span class="tk-pn">}</span>
+<span class="line-no">17</span>
+<span class="line-no">18</span><span class="tk-kw">let</span> <span class="tk-id">to_json</span> <span class="tk-op">=</span> <span class="tk-at">#virtuous</span> <span class="tk-pn">{</span> <span class="tk-fn">make_serializer</span><span class="tk-pn">[</span><span class="tk-ty">Operative</span><span class="tk-pn">]()</span> <span class="tk-pn">};</span></pre>
+
+        <pre class="pane" id="pane-async"><span class="line-no">01</span><span class="tk-cm">// Structured concurrency. Channels. Work-stealing scheduler.</span>
+<span class="line-no">02</span>
+<span class="line-no">03</span><span class="tk-kw">fn</span> <span class="tk-fn">recon</span><span class="tk-pn">(</span><span class="tk-id">targets</span><span class="tk-pn">:</span> <span class="tk-pn">[]</span><span class="tk-ty">Url</span><span class="tk-pn">)</span> <span class="tk-op">-&gt;</span> <span class="tk-op">!</span><span class="tk-ty">u0</span> <span class="tk-pn">{</span>
+<span class="line-no">04</span>    <span class="tk-kw">let</span> <span class="tk-id">jobs</span>    <span class="tk-op">=</span> <span class="tk-ty">codec_channel</span><span class="tk-pn">[</span><span class="tk-ty">Url</span><span class="tk-pn">].</span><span class="tk-fn">bounded</span><span class="tk-pn">(</span><span class="tk-num">64</span><span class="tk-pn">);</span>
+<span class="line-no">05</span>    <span class="tk-kw">let</span> <span class="tk-id">results</span> <span class="tk-op">=</span> <span class="tk-ty">codec_channel</span><span class="tk-pn">[</span><span class="tk-ty">Intel</span><span class="tk-pn">].</span><span class="tk-fn">bounded</span><span class="tk-pn">(</span><span class="tk-num">64</span><span class="tk-pn">);</span>
+<span class="line-no">06</span>
+<span class="line-no">07</span>    <span class="tk-kw">nursery</span> <span class="tk-pn">{</span>
+<span class="line-no">08</span>        <span class="tk-cm">// 8 fox tasks scout in parallel</span>
+<span class="line-no">09</span>        <span class="tk-kw">for</span> <span class="tk-id">_</span> <span class="tk-kw">in</span> <span class="tk-num">0</span><span class="tk-pn">..</span><span class="tk-num">8</span> <span class="tk-pn">{</span>
+<span class="line-no">10</span>            <span class="tk-kw">fox</span> <span class="tk-pn">{</span>
+<span class="line-no">11</span>                <span class="tk-kw">for</span> <span class="tk-id">target</span> <span class="tk-kw">in</span> <span class="tk-id">jobs</span> <span class="tk-pn">{</span>
+<span class="line-no">12</span>                    <span class="tk-kw">let</span> <span class="tk-id">data</span> <span class="tk-op">=</span> <span class="tk-id">http</span><span class="tk-pn">.</span><span class="tk-fn">get</span><span class="tk-pn">(</span><span class="tk-id">target</span><span class="tk-pn">)</span> <span class="tk-kw">catch</span> <span class="tk-kw">continue</span><span class="tk-pn">;</span>
+<span class="line-no">13</span>                    <span class="tk-id">results</span> <span class="tk-op">&lt;-</span> <span class="tk-fn">analyze</span><span class="tk-pn">(</span><span class="tk-id">data</span><span class="tk-pn">);</span>
+<span class="line-no">14</span>                <span class="tk-pn">}</span>
+<span class="line-no">15</span>            <span class="tk-pn">};</span>
+<span class="line-no">16</span>        <span class="tk-pn">}</span>
+<span class="line-no">17</span>        <span class="tk-cm">// drain results — nursery waits for all tasks</span>
+<span class="line-no">18</span>        <span class="tk-kw">for</span> <span class="tk-id">intel</span> <span class="tk-kw">in</span> <span class="tk-id">results</span> <span class="tk-pn">{</span> <span class="tk-fn">archive</span><span class="tk-pn">(</span><span class="tk-id">intel</span><span class="tk-pn">);</span> <span class="tk-pn">}</span>
+<span class="line-no">19</span>    <span class="tk-pn">}</span>
+<span class="line-no">20</span><span class="tk-pn">}</span></pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SPECS
+     ============================================================ -->
+<section id="specs">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="num">// 04</span>
+      <h2>Tactical Comparison</h2>
+      <span class="meta">REF // BENCHMARK 2026<br>NORMALIZED METRICS</span>
+      <div class="ruler dotted-rule"></div>
+    </div>
+
+    <div class="specs-table-wrap bracketed reveal">
+      <span class="corner tl"></span><span class="corner tr"></span>
+      <span class="corner bl"></span><span class="corner br"></span>
+
+      <table class="specs-table">
+        <thead>
+          <tr>
+            <th>Capability</th>
+            <th class="gw-col">▶ GW</th>
+            <th>Rust</th>
+            <th>Zig</th>
+            <th>C</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Compile Throughput</td>
+            <td class="gw-col"><span class="metric-bar" style="width:80px"></span> 1M LoC/s</td>
+            <td><span class="metric-bar dim" style="width:14px"></span> ~50k</td>
+            <td><span class="metric-bar dim" style="width:32px"></span> ~250k</td>
+            <td><span class="metric-bar dim" style="width:24px"></span> ~150k</td>
+          </tr>
+          <tr>
+            <td>Memory Safety</td>
+            <td class="gw-col">Tiered (safe / manual / naked)</td>
+            <td>Borrow checker</td>
+            <td>Manual + checks</td>
+            <td>Manual</td>
+          </tr>
+          <tr>
+            <td>Comptime Metaprogramming</td>
+            <td class="gw-col">First-class (#virtuous, #run, #insert)</td>
+            <td>Macros + const fn</td>
+            <td>comptime</td>
+            <td>Preprocessor</td>
+          </tr>
+          <tr>
+            <td>Sum Types / ADTs</td>
+            <td class="gw-col">liberty (exhaustive)</td>
+            <td>enum (exhaustive)</td>
+            <td>tagged union</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>Error Model</td>
+            <td class="gw-col">!E T + foxdie</td>
+            <td>Result + ?</td>
+            <td>!T + try</td>
+            <td>errno / return</td>
+          </tr>
+          <tr>
+            <td>Cross-Compilation</td>
+            <td class="gw-col">Built-in, libc bundled</td>
+            <td>Toolchain dance</td>
+            <td>Built-in</td>
+            <td>Per-toolchain</td>
+          </tr>
+          <tr>
+            <td>JIT / REPL</td>
+            <td class="gw-col">arsenal codec (live)</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>Inline Assembly</td>
+            <td class="gw-col">rex { } w/ named locals</td>
+            <td>asm! macro</td>
+            <td>asm volatile</td>
+            <td>asm volatile</td>
+          </tr>
+          <tr>
+            <td>Concurrency Primitive</td>
+            <td class="gw-col">fox + nursery</td>
+            <td>Send/Sync + async</td>
+            <td>async (in flux)</td>
+            <td>pthreads</td>
+          </tr>
+          <tr>
+            <td>Headers Required</td>
+            <td class="gw-col">▶ NONE</td>
+            <td>None</td>
+            <td>None</td>
+            <td>Required</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     INSTALL
+     ============================================================ -->
+<section id="install" class="install">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="num">// 05</span>
+      <h2>Deployment</h2>
+      <span class="meta">SUPPLY-LINE OPEN<br>VERIFIED MIRRORS // 12</span>
+      <div class="ruler dotted-rule"></div>
+    </div>
+
+    <div class="install-grid">
+      <div class="install-info reveal">
+        <h3>Pull the <span class="accent">arsenal</span>. Ship in minutes.</h3>
+        <p>
+          Single static binary. No external runtime. Bundled cross-compilation for every
+          supported target. The <code style="color:var(--cyan-primary);font-family:var(--mono);">arsenal</code> driver is your entire toolchain — build, run, test, fmt, doc, lsp, REPL, package manager.
+        </p>
+        <p>
+          Tested on Linux x86_64/aarch64, macOS Apple Silicon &amp; Intel, Windows x86_64,
+          FreeBSD, and freestanding embedded targets.
+        </p>
+        <div class="hint">
+          ▶ Verify checksums before deployment<br>
+          ▶ See <span style="color:var(--cyan-primary)">docs/install.md</span> for offline / air-gapped builds
+        </div>
+      </div>
+
+      <div class="install-window bracketed reveal">
+        <span class="corner tl"></span><span class="corner tr"></span>
+        <span class="corner bl"></span><span class="corner br"></span>
+
+        <div class="os-tabs">
+          <button class="os-tab active" data-pane="linux">Linux</button>
+          <button class="os-tab" data-pane="mac">macOS</button>
+          <button class="os-tab" data-pane="win">Windows</button>
+          <button class="os-tab" data-pane="src">From Source</button>
+        </div>
+
+        <div class="os-pane active" id="os-linux">
+          <div class="cmd"><span class="prompt">$</span><span>curl -sSL https://gw-lang.org/install.sh | sh</span></div>
+          <div class="cmd"><span class="out">▶ FETCHING arsenal-1.0.0-x86_64-linux.tar.zst (12 MB)</span></div>
+          <div class="cmd"><span class="out">▶ VERIFYING signature (minisign) ......... </span><span class="ok">OK</span></div>
+          <div class="cmd"><span class="out">▶ INSTALLING to ~/.local/bin/arsenal ..... </span><span class="ok">OK</span></div>
+          <div class="cmd"><span class="out">▶ DEPLOYMENT COMPLETE // RUN: </span><span style="color:var(--cyan-primary)">arsenal --version</span></div>
+          <div class="cmd"><span class="prompt">$</span><span>arsenal new hello &amp;&amp; cd hello &amp;&amp; arsenal run</span></div>
+          <div class="cmd"><span class="out">Mission complete.</span></div>
+        </div>
+
+        <div class="os-pane" id="os-mac">
+          <div class="cmd"><span class="prompt">$</span><span>brew install gw-lang/tap/arsenal</span></div>
+          <div class="cmd"><span class="out">▶ Apple Silicon &amp; Intel universal binary</span></div>
+          <div class="cmd"><span class="out">▶ Notarized // Codesigned // JIT entitlement</span></div>
+          <div class="cmd"><span class="prompt">$</span><span>arsenal codec <span style="color:var(--text-dim)"># start the REPL</span></span></div>
+          <div class="cmd"><span class="out">GW codec 1.0 (philosophers stdlib loaded)</span></div>
+          <div class="cmd"><span class="prompt">&gt;</span><span><span style="color:#C5E1A5">"Outer Heaven\n"</span>;</span></div>
+          <div class="cmd"><span class="out">Outer Heaven</span></div>
+        </div>
+
+        <div class="os-pane" id="os-win">
+          <div class="cmd"><span class="prompt">PS&gt;</span><span>winget install gw-lang.arsenal</span></div>
+          <div class="cmd"><span class="out">▶ x86_64-windows-msvc binary</span></div>
+          <div class="cmd"><span class="out">▶ MSVC + mingw-w64 toolchains bundled</span></div>
+          <div class="cmd"><span class="prompt">PS&gt;</span><span>arsenal build --target aarch64-linux-musl</span></div>
+          <div class="cmd"><span class="out">▶ COMPILED in 0.42s // 18kb static binary</span></div>
+        </div>
+
+        <div class="os-pane" id="os-src">
+          <div class="cmd"><span class="prompt">$</span><span>git clone https://github.com/gw-lang/arsenal &amp;&amp; cd arsenal</span></div>
+          <div class="cmd"><span class="prompt">$</span><span>./bootstrap.sh         <span style="color:var(--text-dim)"># compiles stage1 from frozen WASM</span></span></div>
+          <div class="cmd"><span class="out">▶ stage1 → stage2 → stage3 // FIXED-POINT</span></div>
+          <div class="cmd"><span class="out">▶ sha256(stage2) == sha256(stage3) ........ </span><span class="ok">OK</span></div>
+          <div class="cmd"><span class="prompt">$</span><span>./build/arsenal --version</span></div>
+          <div class="cmd"><span class="out">arsenal 1.0.0 (self-hosted) // codec rev abc1234</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer>
+  <div class="container">
+    <div class="top-grid">
+      <div class="brand-block">
+        <div class="lockup">GW</div>
+        <p class="desc">
+          A tactical systems programming language.
+          Single-pass JIT, three-tier safety, comptime everything, cross-compile to anything.
+          One toolchain. <span style="color:var(--cyan-primary)">Mission complete.</span>
+        </p>
+      </div>
+
+      <div class="col">
+        <h4>Documentation</h4>
+        <ul>
+          <li><a href="#">Language Reference</a></li>
+          <li><a href="#">Standard Library</a></li>
+          <li><a href="#">Comptime Guide</a></li>
+          <li><a href="#">Borrow Checker</a></li>
+          <li><a href="#">ABI Specification</a></li>
+        </ul>
+      </div>
+
+      <div class="col">
+        <h4>Tooling</h4>
+        <ul>
+          <li><a href="#">arsenal CLI</a></li>
+          <li><a href="#">codec REPL</a></li>
+          <li><a href="#">cipher Package Mgr</a></li>
+          <li><a href="#">LSP / Editor Plugins</a></li>
+          <li><a href="#">Cross-compile Targets</a></li>
+        </ul>
+      </div>
+
+      <div class="col">
+        <h4>Channels</h4>
+        <ul>
+          <li><a href="#">GitHub</a></li>
+          <li><a href="#">Discord</a></li>
+          <li><a href="#">Mailing List</a></li>
+          <li><a href="#">Roadmap</a></li>
+          <li><a href="#">Security</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="stamp">
+      <div class="left">© 2026 // GW LANGUAGE PROJECT</div>
+      <div class="center">▶ DIAMOND DOGS // ARSENAL DIVISION</div>
+      <div class="right">BUILD 1.0.0 // codec abc1234</div>
+    </div>
+  </div>
+</footer>
+
+<script type="module" src="/main.js"></script>
+
+</body>
+</html>
