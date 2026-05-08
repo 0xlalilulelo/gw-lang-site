@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Language Reference — GW // Arsenal</title>
+<link rel="stylesheet" href="/style.css">
+<script type="module" src="/docs.js"></script>
+</head>
+<body>
+
+<div class="grid-bg"></div>
+<div id="doc-nav"></div>
+
+<main class="doc-container">
+  <header class="doc-header reveal">
+    <div class="breadcrumb">
+      <a href="/">Home</a> <span>/</span> <span>Docs</span>
+    </div>
+    <h1>Language Reference</h1>
+    <div class="doc-tag">REF // 001</div>
+  </header>
+
+  <div class="doc-grid">
+    <aside class="doc-sidebar reveal">
+      <h4>In this section</h4>
+      <ul>
+        <li><a href="#pipeline" class="active">Pipeline Overview</a></li>
+        <li><a href="#lexer">Lexer & Parser</a></li>
+        <li><a href="#single-pass">Single-Pass Architecture</a></li>
+        <li><a href="#type-system">Type System</a></li>
+        <li><a href="#ir-design">IR Design</a></li>
+      </ul>
+    </aside>
+
+    <div class="doc-content reveal">
+      <section id="pipeline">
+        <h2>Pipeline Overview</h2>
+        <p>The GW compiler pipeline is designed for high-throughput and interactive use. It operates in a multi-stage process from source code to machine code.</p>
+        
+        <div class="panel bracketed">
+          <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+          <pre><code>.gw source  ──►  Lexer  ──►  Parser  ──►  AST
+                                            │
+                              ┌─────────────┘
+                              ▼
+                          Resolver  (name binding, frequency graph)
+                              │
+                              ▼
+                          Type Checker  (bidirectional, cipher resolution)
+                              │
+                              ▼
+                          Comptime Engine  (interleaves with type check)
+                              │
+                              ▼
+                          MIR Builder  (CFG + SSA, lifetime annotations)
+                              │
+                              ├──► Borrow / Lifetime Checker
+                              │
+                              ▼
+                          MIR Optimizer  (inline-small, const-prop, dead-code)
+                              │
+                              ▼
+                          LIR Lowering  (target-shaped, register-flavored)
+                              │
+                       ┌──────┴──────┐
+                       ▼             ▼
+                  Fast Backend     LLVM Backend
+                  (TPDE-style)     (release / cross)</code></pre>
+        </div>
+      </section>
+
+      <section id="lexer">
+        <h2>Lexer & Parser</h2>
+        <h3>Lexer</h3>
+        <p>UTF-8-native, written as a state machine on <code>&[u8]</code> with a small lookahead. Token stream is produced lazily; for incremental builds it is checkpointable per line. Reserved words are interned at startup into a <code>phf</code> perfect-hash map.</p>
+        
+        <h3>Parser</h3>
+        <p>A hand-written <strong>recursive-descent parser with Pratt-style expression precedence</strong>. Hand-written is non-negotiable: error recovery, location precision, and IDE responsiveness all benefit. The parser is <strong>error-recovering</strong>, allowing the LSP to produce a partially valid AST after every keystroke.</p>
+      </section>
+
+      <section id="single-pass">
+        <h2>Single-Pass Architecture</h2>
+        <p>GW inherits HolyC's "no headers, no forward declarations" principle. The compiler is "single-pass" in the user-visible sense, but internally handles declarations before bodies.</p>
+        <ul>
+          <li><strong>Top-level items are collected before bodies are checked.</strong> The first traversal records signatures, class layouts, and constants.</li>
+          <li><strong>Forward references are tracked through a fixup table.</strong> When name resolution encounters an unresolved identifier, it is revisited when the symbol is defined.</li>
+          <li><strong>Mutually recursive functions</strong> are supported natively.</li>
+        </ul>
+      </section>
+
+      <section id="type-system">
+        <h2>Type System</h2>
+        <p>GW uses <strong>bidirectional type inference</strong>. This algorithm is preferred for its localized error messages and its ability to handle cipher trait bounds and overloading via UFCS.</p>
+        <p>Monomorphization: each generic function produces a fresh specialized function, cached in a global instantiation table. Cipher bounds are solved at instantiation time.</p>
+      </section>
+
+      <section id="ir-design">
+        <h2>IR Design</h2>
+        <p>GW uses three levels of intermediate representation to preserve information at the right level of abstraction.</p>
+        
+        <div class="specs-table-wrap">
+          <table class="specs-table">
+            <thead>
+              <tr>
+                <th>IR</th>
+                <th>Form</th>
+                <th>Purpose</th>
+                <th>Consumers</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>AST</strong></td>
+                <td>Tree, source-shaped</td>
+                <td>Type checking, reflection</td>
+                <td>Type checker, LSP, doc generator</td>
+              </tr>
+              <tr>
+                <td><strong>MIR</strong></td>
+                <td>CFG of SSA blocks</td>
+                <td>Borrow check, optimizations</td>
+                <td>Borrow checker, MIR opt passes</td>
+              </tr>
+              <tr>
+                <td><strong>LIR</strong></td>
+                <td>Register-flavored</td>
+                <td>Codegen</td>
+                <td>Fast backend, LLVM backend</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <div class="doc-footer-nav">
+        <a href="/">
+          <span class="label">Previous</span>
+          <span class="title">Home</span>
+        </a>
+        <a href="/docs/standard-library.html">
+          <span class="label">Next</span>
+          <span class="title">Standard Library</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div id="doc-footer"></div>
+
+</body>
+</html>

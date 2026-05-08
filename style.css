@@ -1311,3 +1311,222 @@ footer .stamp .right {
 .reveal { opacity: 0; transform: translateY(16px); transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); }
 .reveal.in { opacity: 1; transform: translateY(0); }
 
+
+/* ============================================================
+   DOCUMENTATION PAGES
+   ============================================================ */
+
+.doc-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 120px 32px 80px;
+}
+
+.doc-header {
+  margin-bottom: 60px;
+  border-bottom: 1px solid var(--border-thin);
+  padding-bottom: 32px;
+  position: relative;
+}
+
+.doc-header .breadcrumb {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.doc-header .breadcrumb a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.doc-header .breadcrumb a:hover {
+  color: var(--cyan-primary);
+}
+
+.doc-header h1 {
+  font-family: var(--display);
+  font-size: 56px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.doc-header .doc-tag {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--cyan-primary);
+  opacity: 0.6;
+  letter-spacing: 0.2em;
+}
+
+.doc-grid {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+.doc-sidebar {
+  position: sticky;
+  top: 120px;
+}
+
+.doc-sidebar h4 {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--cyan-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-bottom: 24px;
+}
+
+.doc-sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.doc-sidebar ul li {
+  margin-bottom: 12px;
+}
+
+.doc-sidebar ul li a {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: all 0.15s;
+  display: block;
+  padding: 4px 0;
+  border-left: 2px solid transparent;
+}
+
+.doc-sidebar ul li a:hover {
+  color: var(--text-primary);
+  padding-left: 8px;
+}
+
+.doc-sidebar ul li a.active {
+  color: var(--cyan-primary);
+  border-left-color: var(--cyan-primary);
+  padding-left: 12px;
+}
+
+.doc-content {
+  line-height: 1.7;
+}
+
+.doc-content h2 {
+  font-family: var(--display);
+  font-size: 32px;
+  margin: 64px 0 24px;
+  color: var(--text-primary);
+  letter-spacing: 0.02em;
+}
+
+.doc-content h3 {
+  font-family: var(--display);
+  font-size: 20px;
+  margin: 40px 0 16px;
+  color: var(--cyan-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.doc-content p {
+  margin-bottom: 20px;
+  color: var(--text-secondary);
+}
+
+.doc-content ul, .doc-content ol {
+  margin-bottom: 24px;
+  padding-left: 20px;
+}
+
+.doc-content li {
+  margin-bottom: 12px;
+  color: var(--text-secondary);
+}
+
+.doc-content .panel {
+  margin: 40px 0;
+}
+
+.doc-content code {
+  background: rgba(79, 195, 247, 0.08);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  color: var(--cyan-bright);
+}
+
+.doc-content pre {
+  margin: 32px 0;
+}
+
+.doc-footer-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 80px;
+  padding-top: 40px;
+  border-top: 1px dashed var(--border-thin);
+}
+
+.doc-footer-nav a {
+  text-decoration: none;
+  padding: 24px;
+  background: rgba(10, 14, 19, 0.4);
+  border: 1px solid var(--border-thin);
+  transition: all 0.2s;
+}
+
+.doc-footer-nav a:hover {
+  border-color: var(--border-bright);
+  background: rgba(79, 195, 247, 0.05);
+}
+
+.doc-footer-nav .label {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.doc-footer-nav .title {
+  font-family: var(--display);
+  font-size: 20px;
+  color: var(--text-primary);
+  display: block;
+}
+
+@media (max-width: 960px) {
+  .doc-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .doc-sidebar {
+    position: static;
+    border-bottom: 1px dashed var(--border-thin);
+    padding-bottom: 32px;
+  }
+  
+  .doc-header h1 {
+    font-size: 40px;
+  }
+}

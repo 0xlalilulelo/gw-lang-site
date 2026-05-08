@@ -7,6 +7,21 @@ export default defineConfig({
   },
   build: {
     cssMinify: false,
+    rollupOptions: {
+      input: {
+        main: 'index.html',
+        'language-reference': 'docs/language-reference.html',
+        'standard-library': 'docs/standard-library.html',
+        'comptime-guide': 'docs/comptime-guide.html',
+        'borrow-checker': 'docs/borrow-checker.html',
+        'abi-specification': 'docs/abi-specification.html',
+        'arsenal-cli': 'docs/arsenal-cli.html',
+        'codec-repl': 'docs/codec-repl.html',
+        'cipher-package-mgr': 'docs/cipher-package-mgr.html',
+        'lsp-editor': 'docs/lsp-editor.html',
+        'cross-compile': 'docs/cross-compile.html',
+      }
+    }
   },
   plugins: [
     VitePWA({

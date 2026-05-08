@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Borrow Checker — GW // Arsenal</title>
+<link rel="stylesheet" href="/style.css">
+<script type="module" src="/docs.js"></script>
+</head>
+<body>
+
+<div class="grid-bg"></div>
+<div id="doc-nav"></div>
+
+<main class="doc-container">
+  <header class="doc-header reveal">
+    <div class="breadcrumb">
+      <a href="/">Home</a> <span>/</span> <span>Docs</span>
+    </div>
+    <h1>Borrow Checker</h1>
+    <div class="doc-tag">BRW // 004</div>
+  </header>
+
+  <div class="doc-grid">
+    <aside class="doc-sidebar reveal">
+      <h4>In this section</h4>
+      <ul>
+        <li><a href="#philosophy" class="active">Philosophy</a></li>
+        <li><a href="#algorithm">The Algorithm</a></li>
+        <li><a href="#tiers">Safety Tiers</a></li>
+        <li><a href="#errors">Error Reporting</a></li>
+      </ul>
+    </aside>
+
+    <div class="doc-content reveal">
+      <section id="philosophy">
+        <h2>Philosophy</h2>
+        <p>GW implements a function-local, region-based borrow checker. It provides memory safety without garbage collection by enforcing ownership and aliasing rules at compile time.</p>
+        <p>The goal is to provide Rust-level safety with a simpler implementation that is faster to run and easier for the user to reason about.</p>
+      </section>
+
+      <section id="algorithm">
+        <h2>The Algorithm</h2>
+        <p>The checker operates on MIR using several coordinated passes:</p>
+        <ul>
+          <li><strong>Region Inference</strong>: Each reference introduces a region variable. Regions form a partial order based on <code>outlives</code> constraints.</li>
+          <li><strong>Loan Tracking</strong>: Maintains a set of active loans (place, mutability, region) at every program point.</li>
+          <li><strong>Aliasing Rules</strong>:
+            <ul>
+              <li>Mutable access: Asserts no other loan covers the place.</li>
+              <li>Shared access: Asserts no mutable loan covers the place.</li>
+            </ul>
+          </li>
+          <li><strong>Move Tracking</strong>: Dataflow analysis tracks initialization states; moves invalidate source locations.</li>
+        </ul>
+      </section>
+
+      <section id="tiers">
+        <h2>Safety Tiers</h2>
+        <p>GW acknowledges that sometimes the borrow checker is too restrictive. Three tiers of safety are provided:</p>
+        <div class="specs-table-wrap">
+          <table class="specs-table">
+            <thead>
+              <tr>
+                <th>Tier</th>
+                <th>Enforcement</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong><code>safe</code></strong> (Default)</td>
+                <td>Full borrow checking and aliasing enforcement.</td>
+              </tr>
+              <tr>
+                <td><strong><code>manual</code></strong></td>
+                <td>Aliasing checks suppressed; initialization tracking remains.</td>
+              </tr>
+              <tr>
+                <td><strong><code>naked</code></strong></td>
+                <td>All safety checks disabled. Used for low-level kernels.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="errors">
+        <h2>Error Reporting</h2>
+        <p>Diagnostics for lifetime errors are designed to be actionable. Every error includes:</p>
+        <ul>
+          <li><strong>Primary Span</strong>: The location of the conflicting access.</li>
+          <li><strong>Secondary Spans</strong>: Annotated locations of the original borrow.</li>
+          <li><strong>Note Chain</strong>: Explanation of why the conflict occurred based on region inference.</li>
+          <li><strong>Error Codes</strong>: Stable identifiers (e.g., <code>E0042</code>) for documentation lookup.</li>
+        </ul>
+      </section>
+
+      <div class="doc-footer-nav">
+        <a href="/docs/comptime-guide.html">
+          <span class="label">Previous</span>
+          <span class="title">Comptime Guide</span>
+        </a>
+        <a href="/docs/abi-specification.html">
+          <span class="label">Next</span>
+          <span class="title">ABI Specification</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div id="doc-footer"></div>
+
+</body>
+</html>

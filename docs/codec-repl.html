@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>codec REPL — GW // Arsenal</title>
+<link rel="stylesheet" href="/style.css">
+<script type="module" src="/docs.js"></script>
+</head>
+<body>
+
+<div class="grid-bg"></div>
+<div id="doc-nav"></div>
+
+<main class="doc-container">
+  <header class="doc-header reveal">
+    <div class="breadcrumb">
+      <a href="/">Home</a> <span>/</span> <span>Docs</span>
+    </div>
+    <h1>codec REPL</h1>
+    <div class="doc-tag">CDC // 007</div>
+  </header>
+
+  <div class="doc-grid">
+    <aside class="doc-sidebar reveal">
+      <h4>In this section</h4>
+      <ul>
+        <li><a href="#overview" class="active">Overview</a></li>
+        <li><a href="#sessions">Session State</a></li>
+        <li><a href="#jit">JIT Architecture</a></li>
+        <li><a href="#security">W^X Security</a></li>
+      </ul>
+    </aside>
+
+    <div class="doc-content reveal">
+      <section id="overview">
+        <h2>Overview</h2>
+        <p>The <code>codec</code> REPL is the GW compiler running in JIT mode. It provides an interactive environment for rapid prototyping and experimentation.</p>
+        <p>Each line is parsed and immediately compiled. Top-level declarations are added to the session, while expressions are wrapped in synthetic functions and invoked.</p>
+      </section>
+
+      <section id="sessions">
+        <h2>Session State</h2>
+        <p>The REPL maintains a persistent session state that survives across command invocations:</p>
+        <ul>
+          <li><strong>Symbol Table</strong>: Tracks all defined variables and functions.</li>
+          <li><strong>Type Table</strong>: Stores resolved type information for the session.</li>
+          <li><strong>JIT Module</strong>: Manages the machine code regions in memory.</li>
+          <li><strong>History</strong>: Persisted to <code>~/.arsenal/codec_history</code> for continuity.</li>
+        </ul>
+      </section>
+
+      <section id="jit">
+        <h2>JIT Architecture</h2>
+        <p>The JIT engine writes machine code directly to managed memory regions. It uses an incremental emission strategy where each new declaration produces a fresh function in a new page-aligned chunk.</p>
+        <p>This approach avoids complex garbage collection for stale code while maintaining low latency (sub-100ms) for typical REPL statements.</p>
+      </section>
+
+      <section id="security">
+        <h2>W^X Security</h2>
+        <p>GW handles modern OS security requirements for JIT-ed code natively:</p>
+        <ul>
+          <li><strong>Apple Silicon</strong>: Uses <code>MAP_JIT</code> and <code>pthread_jit_write_protect_np</code> to toggle between writable and executable states.</li>
+          <li><strong>Hardened Linux</strong>: Utilizes <code>memfd_create</code> with dual mappings (RW and RX) for hardened execution environments.</li>
+          <li><strong>Windows</strong>: Implements <code>VirtualProtect</code> with <code>PAGE_EXECUTE_READ</code> and explicit instruction cache flushing.</li>
+        </ul>
+      </section>
+
+      <div class="doc-footer-nav">
+        <a href="/docs/arsenal-cli.html">
+          <span class="label">Previous</span>
+          <span class="title">arsenal CLI</span>
+        </a>
+        <a href="/docs/cipher-package-mgr.html">
+          <span class="label">Next</span>
+          <span class="title">cipher Package Mgr</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div id="doc-footer"></div>
+
+</body>
+</html>

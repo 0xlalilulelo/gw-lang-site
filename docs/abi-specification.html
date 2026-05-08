@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ABI Specification — GW // Arsenal</title>
+<link rel="stylesheet" href="/style.css">
+<script type="module" src="/docs.js"></script>
+</head>
+<body>
+
+<div class="grid-bg"></div>
+<div id="doc-nav"></div>
+
+<main class="doc-container">
+  <header class="doc-header reveal">
+    <div class="breadcrumb">
+      <a href="/">Home</a> <span>/</span> <span>Docs</span>
+    </div>
+    <h1>ABI Specification</h1>
+    <div class="doc-tag">ABI // 005</div>
+  </header>
+
+  <div class="doc-grid">
+    <aside class="doc-sidebar reveal">
+      <h4>In this section</h4>
+      <ul>
+        <li><a href="#stability" class="active">ABI Stability</a></li>
+        <li><a href="#lir">LIR Representation</a></li>
+        <li><a href="#backends">Backend Selection</a></li>
+        <li><a href="#linkage">Linkage Rules</a></li>
+      </ul>
+    </aside>
+
+    <div class="doc-content reveal">
+      <section id="stability">
+        <h2>ABI Stability</h2>
+        <p>During the <code>0.x</code> release cycle, GW does not guarantee ABI stability for internal calls. Breaking changes to struct layouts and calling conventions are expected as the compiler matures.</p>
+        <p><strong>ABI v1</strong> will be frozen at the Phase 10 milestone. For interoperability before then, use the <code>extern class</code> and <code>extern fn</code> directives, which strictly follow the C ABI of the target platform.</p>
+      </section>
+
+      <section id="lir">
+        <h2>LIR Representation</h2>
+        <p>LIR (Low-level IR) is the final representation before machine code emission. It is target-shaped but architecture-agnostic until final selection.</p>
+        <ul>
+          <li><strong>Virtual Registers</strong>: Operands are <code>VirtualReg</code> IDs.</li>
+          <li><strong>ABI Awareness</strong>: Function calls are laid out according to the platform's calling convention (System V, Microsoft x64, etc.).</li>
+          <li><strong>Opcodes</strong>: Simple opcodes mirroring SelectionDAG with high-level intrinsics like <code>gep</code>, <code>load</code>, and <code>atomic</code>.</li>
+        </ul>
+      </section>
+
+      <section id="backends">
+        <h2>Backend Selection</h2>
+        <p>GW provides multiple backends optimized for different stages of the development lifecycle.</p>
+        <div class="specs-table-wrap">
+          <table class="specs-table">
+            <thead>
+              <tr>
+                <th>Mode</th>
+                <th>Backend</th>
+                <th>Optimization</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><code>--fast</code></td><td>Fast Backend</td><td>None (JIT/AOT)</td></tr>
+              <tr><td><code>--debug</code></td><td>Fast Backend</td><td>Full Debug Info</td></tr>
+              <tr><td><code>--release</code></td><td>LLVM</td><td><code>-O2</code></td></tr>
+              <tr><td><code>--release-fast</code></td><td>LLVM</td><td><code>-O3</code> / Link-time Opt</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="linkage">
+        <h2>Linkage Rules</h2>
+        <p>GW uses <strong>lld</strong> as its default linker across all platforms (ELF, Mach-O, COFF, WASM). This ensures a consistent linking experience regardless of the host environment.</p>
+        <p>Symbols are mangled by default to support frequencies and generics. Use <code>#[export]</code> to export symbols with C-style linkage for FFI.</p>
+      </section>
+
+      <div class="doc-footer-nav">
+        <a href="/docs/borrow-checker.html">
+          <span class="label">Previous</span>
+          <span class="title">Borrow Checker</span>
+        </a>
+        <a href="/docs/arsenal-cli.html">
+          <span class="label">Next</span>
+          <span class="title">arsenal CLI</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div id="doc-footer"></div>
+
+</body>
+</html>

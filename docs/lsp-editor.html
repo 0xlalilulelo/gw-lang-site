@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LSP / Editor Plugins — GW // Arsenal</title>
+<link rel="stylesheet" href="/style.css">
+<script type="module" src="/docs.js"></script>
+</head>
+<body>
+
+<div class="grid-bg"></div>
+<div id="doc-nav"></div>
+
+<main class="doc-container">
+  <header class="doc-header reveal">
+    <div class="breadcrumb">
+      <a href="/">Home</a> <span>/</span> <span>Docs</span>
+    </div>
+    <h1>LSP / Editor Plugins</h1>
+    <div class="doc-tag">LSP // 009</div>
+  </header>
+
+  <div class="doc-grid">
+    <aside class="doc-sidebar reveal">
+      <h4>In this section</h4>
+      <ul>
+        <li><a href="#overview" class="active">Overview</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#performance">Performance</a></li>
+        <li><a href="#plugins">Supported Editors</a></li>
+      </ul>
+    </aside>
+
+    <div class="doc-content reveal">
+      <section id="overview">
+        <h2>Overview</h2>
+        <p>The GW Language Server Protocol (LSP) server provides a modern IDE experience for GW developers. It is built directly into the <code>arsenal</code> toolchain, ensuring that your editor is always in sync with the compiler.</p>
+        <p>It uses an incremental parsing strategy via the CST (Concrete Syntax Tree) to provide instantaneous feedback as you type.</p>
+      </section>
+
+      <section id="features">
+        <h2>Features</h2>
+        <ul>
+          <li><strong>Hover</strong>: Displays type information, documentation comments, and attributes.</li>
+          <li><strong>Navigation</strong>: Goto-definition, find-references, and workspace-wide rename.</li>
+          <li><strong>Diagnostics</strong>: Real-time errors and warnings from the type checker and borrow checker.</li>
+          <li><strong>Inlay Hints</strong>: Shows inferred types for locals and monomorphized generic arguments.</li>
+          <li><strong>Code Actions</strong>: Automatic quick-fixes suggested by the compiler.</li>
+        </ul>
+      </section>
+
+      <section id="performance">
+        <h2>Performance</h2>
+        <p>LSP responsiveness is a top priority. The server utilizes several optimization techniques:</p>
+        <ul>
+          <li><strong>Incremental CST</strong>: Only re-parses affected token ranges on every keystroke.</li>
+          <li><strong>Per-frequency Cache</strong>: Reuses resolved symbol information across sessions.</li>
+          <li><strong>Parallel Analysis</strong>: Independent analysis of function bodies across multiple cores.</li>
+        </ul>
+      </section>
+
+      <section id="plugins">
+        <h2>Supported Editors</h2>
+        <p>Since the server follows the standard Language Server Protocol, it is compatible with most modern editors:</p>
+        <ul>
+          <li><strong>VS Code</strong>: Official extension available via the marketplace.</li>
+          <li><strong>Neovim</strong>: Integration via <code>nvim-lspconfig</code>.</li>
+          <li><strong>Emacs</strong>: Supported via <code>lsp-mode</code> or <code>eglot</code>.</li>
+          <li><strong>Zed</strong>: Native integration with the <code>arsenal</code> binary.</li>
+        </ul>
+      </section>
+
+      <div class="doc-footer-nav">
+        <a href="/docs/cipher-package-mgr.html">
+          <span class="label">Previous</span>
+          <span class="title">cipher Package Mgr</span>
+        </a>
+        <a href="/docs/cross-compile.html">
+          <span class="label">Next</span>
+          <span class="title">Cross-compile Targets</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div id="doc-footer"></div>
+
+</body>
+</html>

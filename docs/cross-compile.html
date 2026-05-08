@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cross-compile Targets — GW // Arsenal</title>
+<link rel="stylesheet" href="/style.css">
+<script type="module" src="/docs.js"></script>
+</head>
+<body>
+
+<div class="grid-bg"></div>
+<div id="doc-nav"></div>
+
+<main class="doc-container">
+  <header class="doc-header reveal">
+    <div class="breadcrumb">
+      <a href="/">Home</a> <span>/</span> <span>Docs</span>
+    </div>
+    <h1>Cross-compile Targets</h1>
+    <div class="doc-tag">XCT // 010</div>
+  </header>
+
+  <div class="doc-grid">
+    <aside class="doc-sidebar reveal">
+      <h4>In this section</h4>
+      <ul>
+        <li><a href="#overview" class="active">Overview</a></li>
+        <li><a href="#libc-matrix">Bundled libc Matrix</a></li>
+        <li><a href="#targets">Supported Targets</a></li>
+        <li><a href="#usage">Usage Guide</a></li>
+      </ul>
+    </aside>
+
+    <div class="doc-content reveal">
+      <section id="overview">
+        <h2>Overview</h2>
+        <p>GW provides true cross-compilation out of the box. The toolchain bundles the necessary headers and runtime libraries to target multiple operating systems and architectures from a single host binary.</p>
+        <p>No separate "cross-compiler" installation is required; the <code>arsenal</code> binary itself is the only tool you need.</p>
+      </section>
+
+      <section id="#libc-matrix">
+        <h2>Bundled libc Matrix</h2>
+        <p>GW bundles the source or headers for every supported <code>libc</code> implementation to ensure consistent cross-compilation behavior.</p>
+        <div class="specs-table-wrap">
+          <table class="specs-table">
+            <thead>
+              <tr>
+                <th>Target</th>
+                <th>libc Implementation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Linux (musl)</strong></td><td>musl 1.2.x (Vendored)</td></tr>
+              <tr><td><strong>Linux (glibc)</strong></td><td>glibc 2.17 – 2.40 (Header farm)</td></tr>
+              <tr><td><strong>Windows</strong></td><td>mingw-w64 + Windows SDK headers</td></tr>
+              <tr><td><strong>macOS</strong></td><td>Xcode SDK headers (Selective)</td></tr>
+              <tr><td><strong>WASM</strong></td><td>wasi-libc</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="targets">
+        <h2>Supported Targets</h2>
+        <p>The compiler supports a wide matrix of architectures and operating systems. You can view the full list by running <code>arsenal targets</code>.</p>
+        <ul>
+          <li><strong>Architectures</strong>: x86_64, aarch64, riscv64, wasm32.</li>
+          <li><strong>Operating Systems</strong>: Linux, macOS, Windows, FreeBSD, WASI.</li>
+        </ul>
+      </section>
+
+      <section id="usage">
+        <h2>Usage Guide</h2>
+        <p>To cross-compile, simply specify the target triple during build. For Linux glibc targets, you can also specify a minimum version to ensure compatibility with older distributions.</p>
+        
+        <div class="panel bracketed">
+          <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+          <pre><code class="tk-comment"># Cross-compile to Linux aarch64</code>
+<code class="tk-keyword">arsenal</code> build --target aarch64-linux-musl
+
+<code class="tk-comment"># Target an older glibc version for maximum compatibility</code>
+<code class="tk-keyword">arsenal</code> build --target x86_64-linux-gnu.2.17</pre>
+        </div>
+      </section>
+
+      <div class="doc-footer-nav">
+        <a href="/docs/lsp-editor.html">
+          <span class="label">Previous</span>
+          <span class="title">LSP / Editor Plugins</span>
+        </a>
+        <a href="/">
+          <span class="label">Next</span>
+          <span class="title">Home</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div id="doc-footer"></div>
+
+</body>
+</html>

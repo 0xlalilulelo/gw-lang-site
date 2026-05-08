@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comptime Guide — GW // Arsenal</title>
+<link rel="stylesheet" href="/style.css">
+<script type="module" src="/docs.js"></script>
+</head>
+<body>
+
+<div class="grid-bg"></div>
+<div id="doc-nav"></div>
+
+<main class="doc-container">
+  <header class="doc-header reveal">
+    <div class="breadcrumb">
+      <a href="/">Home</a> <span>/</span> <span>Docs</span>
+    </div>
+    <h1>Comptime Guide</h1>
+    <div class="doc-tag">CMP // 003</div>
+  </header>
+
+  <div class="doc-grid">
+    <aside class="doc-sidebar reveal">
+      <h4>In this section</h4>
+      <ul>
+        <li><a href="#overview" class="active">Overview</a></li>
+        <li><a href="#directives">Directives</a></li>
+        <li><a href="#reflection">Reflection API</a></li>
+        <li><a href="#sandboxing">Sandboxing</a></li>
+      </ul>
+    </aside>
+
+    <div class="doc-content reveal">
+      <section id="overview">
+        <h2>Overview</h2>
+        <p>Comptime is GW's superpower. It allows running arbitrary code during compilation to generate types, optimize data structures, and perform reflection without runtime cost.</p>
+        <p>The comptime engine is a high-performance stack VM operating on MIR, providing 10–50x speedups over traditional tree-walking interpreters.</p>
+      </section>
+
+      <section id="directives">
+        <h2>Directives</h2>
+        <ul>
+          <li><strong><code>#run expr</code></strong>: Evaluates an expression at comptime and replaces the site with the resulting constant.</li>
+          <li><strong><code>#insert(s)</code></strong>: Re-feeds a byte array to the lexer and parser at the call site for procedural code injection.</li>
+          <li><strong><code>#virtuous { ... }</code></strong>: A block executed entirely at comptime; declarations within escape to the surrounding scope.</li>
+        </ul>
+
+        <div class="panel bracketed">
+          <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+          <pre><code class="tk-keyword">#virtuous</code> {
+    <code class="tk-keyword">if</code> (<code class="tk-variable">TARGET_ARCH</code> == .x86_64) {
+        <code class="tk-keyword">const</code> <code class="tk-variable">VECTOR_SIZE</code> = 64;
+    } <code class="tk-keyword">else</code> {
+        <code class="tk-keyword">const</code> <code class="tk-variable">VECTOR_SIZE</code> = 16;
+    }
+}</pre>
+        </div>
+      </section>
+
+      <section id="reflection">
+        <h2>Reflection API</h2>
+        <p>Types are first-class values at comptime. You can inspect class fields, attributes, and signatures using reflection intrinsics.</p>
+        <ul>
+          <li><strong><code>@codec(T)</code></strong>: Returns <code>TypeInfo</code> for a type, mirroring the language's internal representation.</li>
+          <li><strong><code>@field(v, "name")</code></strong>: Accesses a field by string name, resolved at compile time.</li>
+          <li><strong><code>@call(f, args)</code></strong>: Dynamically dispatches a function call with a tuple of arguments.</li>
+        </ul>
+      </section>
+
+      <section id="sandboxing">
+        <h2>Sandboxing</h2>
+        <p>To ensure build reliability and security, comptime evaluation is strictly sandboxed:</p>
+        <ul>
+          <li><strong>No I/O</strong>: Access to the filesystem or network is prohibited by default.</li>
+          <li><strong>Resource Caps</strong>: 256 MiB memory limit and 10⁹ operation limit per invocation.</li>
+          <li><strong>Determinism</strong>: Results are bit-for-bit reproducible; no access to non-deterministic primitives like <code>Now()</code> or <code>Random()</code>.</li>
+        </ul>
+      </section>
+
+      <div class="doc-footer-nav">
+        <a href="/docs/standard-library.html">
+          <span class="label">Previous</span>
+          <span class="title">Standard Library</span>
+        </a>
+        <a href="/docs/borrow-checker.html">
+          <span class="label">Next</span>
+          <span class="title">Borrow Checker</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div id="doc-footer"></div>
+
+</body>
+</html>
