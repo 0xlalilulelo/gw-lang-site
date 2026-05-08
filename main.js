@@ -1,4 +1,5 @@
 import { registerSW } from 'virtual:pwa-register';
+import './style.css';
 registerSW({ immediate: true });
 
   // Boot overlay removal
