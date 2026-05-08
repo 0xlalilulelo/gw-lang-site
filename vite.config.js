@@ -5,6 +5,9 @@ export default defineConfig({
   css: {
     transformer: 'postcss',
   },
+  build: {
+    cssMinify: false,
+  },
   plugins: [
     VitePWA({
       registerType: 'autoUpdate',
