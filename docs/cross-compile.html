@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cross-compile Targets — GW // Arsenal</title>
+<title>Cross-compile Targets — GW // GW-CORE</title>
 <link rel="stylesheet" href="/style.css">
 <script type="module" src="/docs.js"></script>
 </head>
@@ -36,7 +36,7 @@
       <section id="overview">
         <h2>Overview</h2>
         <p>GW provides true cross-compilation out of the box. The toolchain bundles the necessary headers and runtime libraries to target multiple operating systems and architectures from a single host binary.</p>
-        <p>No separate "cross-compiler" installation is required; the <code>arsenal</code> binary itself is the only tool you need.</p>
+        <p>No separate "cross-compiler" installation is required; the <code>GW-CORE</code> binary itself is the only tool you need.</p>
       </section>
 
       <section id="#libc-matrix">
@@ -63,7 +63,7 @@
 
       <section id="targets">
         <h2>Supported Targets</h2>
-        <p>The compiler supports a wide matrix of architectures and operating systems. You can view the full list by running <code>arsenal targets</code>.</p>
+        <p>The compiler supports a wide matrix of architectures and operating systems. You can view the full list by running <code>GW-CORE targets</code>.</p>
         <ul>
           <li><strong>Architectures</strong>: x86_64, aarch64, riscv64, wasm32.</li>
           <li><strong>Operating Systems</strong>: Linux, macOS, Windows, FreeBSD, WASI.</li>
@@ -77,10 +77,10 @@
         <div class="panel bracketed">
           <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
           <pre><code class="tk-comment"># Cross-compile to Linux aarch64</code>
-<code class="tk-keyword">arsenal</code> build --target aarch64-linux-musl
+<code class="tk-keyword">GW-CORE</code> build --target aarch64-linux-musl
 
 <code class="tk-comment"># Target an older glibc version for maximum compatibility</code>
-<code class="tk-keyword">arsenal</code> build --target x86_64-linux-gnu.2.17</pre>
+<code class="tk-keyword">GW-CORE</code> build --target x86_64-linux-gnu.2.17</pre>
         </div>
       </section>
 

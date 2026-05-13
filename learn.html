@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Learn GW // Documentation Portal</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#050709">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=VT323&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<style>
+  .learn-hero {
+    padding: 120px 20px 60px;
+    text-align: center;
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .learn-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto 100px;
+    padding: 0 20px;
+  }
+  .learn-card {
+    background: var(--bg-panel);
+    border: 1px solid var(--border-dim);
+    padding: 30px;
+    position: relative;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  .learn-card:hover {
+    border-color: var(--cyan-primary);
+    box-shadow: 0 0 20px rgba(0, 255, 204, 0.1);
+  }
+  .learn-card h3 {
+    font-family: var(--display);
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: var(--text-bright);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .learn-card p {
+    color: var(--text-dim);
+    margin-bottom: 20px;
+    font-size: 15px;
+    line-height: 1.5;
+    flex-grow: 1;
+  }
+  .learn-card .btn {
+    width: 100%;
+    text-align: center;
+    display: block;
+    margin-top: auto;
+  }
+  .doc-idx {
+    font-family: var(--mono);
+    color: var(--cyan-dim);
+    font-size: 12px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+  }
+</style>
+</head>
+<body>
+
+<div class="grid-bg"></div>
+<div class="scan-beam"></div>
+
+<!-- NAV -->
+<nav class="top">
+  <div class="inner">
+    <a href="/" class="brand-mark">
+      <div class="mark-box">GW</div>
+      <span class="brand-meta">v1.0 // LEARN</span>
+    </a>
+    <ul>
+      <li><a href="/index.html#briefing">Briefing</a></li>
+      <li><a href="/index.html#capabilities">Capabilities</a></li>
+      <li><a href="/index.html#code">Specimen</a></li>
+      <li><a href="/index.html#specs">Specs</a></li>
+      <li><a href="/index.html#install">Deploy</a></li>
+      <li><a href="learn.html" class="active">Learn</a></li>
+      <li><a href="/playground.html">Playground</a></li>
+      <li><a href="/tools.html">Tools</a></li>
+      <li><a href="/community.html">Community</a></li>
+    </ul>
+    <a href="/index.html#install" class="nav-cta">Get GW</a>
+  </div>
+</nav>
+
+<header class="learn-hero">
+  <h1 class="tagline">Master the <span class="accent">GW</span> Language</h1>
+  <p class="sub">
+    Documentation, tutorials, and deep dives for the systems programming operative.
+    Choose your entry point.
+  </p>
+</header>
+
+<div class="learn-grid">
+  <!-- Card 1 -->
+  <div class="learn-card bracketed">
+    <span class="corner tl"></span><span class="corner tr"></span>
+    <span class="corner bl"></span><span class="corner br"></span>
+    <span class="doc-idx">DOC-01</span>
+    <h3>Language Reference</h3>
+    <p>The definitive guide to GW semantics. Types, traits, borrow checking, comptime metaprogramming, and concurrency. Everything an operative needs to know.</p>
+    <a href="/docs/language-reference.html" class="btn btn-primary">Read Reference <span class="arrow">▶▶</span></a>
+  </div>
+
+  <!-- Card 2 -->
+  <div class="learn-card bracketed">
+    <span class="corner tl"></span><span class="corner tr"></span>
+    <span class="corner bl"></span><span class="corner br"></span>
+    <span class="doc-idx">DOC-02</span>
+    <h3>Standard Library</h3>
+    <p>Explore the `std` modules. Explicit allocators, fox tasks, generic collections, and the cross-platform I/O subsystem. Built for pragmatic performance.</p>
+    <a href="/docs/standard-library.html" class="btn btn-secondary">Browse Stdlib <span class="arrow">▸</span></a>
+  </div>
+
+  <!-- Card 3 -->
+  <div class="learn-card bracketed">
+    <span class="corner tl"></span><span class="corner tr"></span>
+    <span class="corner bl"></span><span class="corner br"></span>
+    <span class="doc-idx">DOC-03</span>
+    <h3>Comptime Guide</h3>
+    <p>Master the `#run` and `comptime { }` blocks. Learn how to generate types, derive serializers from reflection metadata, and avoid macro boilerplate.</p>
+    <a href="/docs/comptime-guide.html" class="btn btn-secondary">Comptime Tactics <span class="arrow">▸</span></a>
+  </div>
+
+  <!-- Card 4 -->
+  <div class="learn-card bracketed">
+    <span class="corner tl"></span><span class="corner tr"></span>
+    <span class="corner bl"></span><span class="corner br"></span>
+    <span class="doc-idx">DOC-04</span>
+    <h3>Borrow Checker</h3>
+    <p>Understand the three-tier memory safety gradient. Region-checked references, explicit scopes, and when to drop down into manual or naked tiers.</p>
+    <a href="/docs/borrow-checker.html" class="btn btn-secondary">Safety Gradients <span class="arrow">▸</span></a>
+  </div>
+
+  <!-- Card 5 -->
+  <div class="learn-card bracketed">
+    <span class="corner tl"></span><span class="corner tr"></span>
+    <span class="corner bl"></span><span class="corner br"></span>
+    <span class="doc-idx">DOC-05</span>
+    <h3>ABI &amp; FFI Specs</h3>
+    <p>Direct linkage with C. Using `--import-c`, writing bidirectional C ABI interfaces, and utilizing `asm { }` for raw tactical hardware access.</p>
+    <a href="/docs/abi-specification.html" class="btn btn-secondary">Interop Specs <span class="arrow">▸</span></a>
+  </div>
+
+  <!-- Card 6 -->
+  <div class="learn-card bracketed">
+    <span class="corner tl"></span><span class="corner tr"></span>
+    <span class="corner bl"></span><span class="corner br"></span>
+    <span class="doc-idx">DOC-06</span>
+    <h3>Toolchain Setup</h3>
+    <p>Configure your environment. Set up the Language Server Protocol (LSP) for VSCode or Neovim, use the integrated package manager, and master the REPL.</p>
+    <a href="/docs/lsp-editor.html" class="btn btn-secondary">Configure Tooling <span class="arrow">▸</span></a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="top-grid">
+      <div class="brand-block">
+        <div class="lockup">GW</div>
+        <p class="desc">
+          A tactical systems programming language.
+          Single-pass JIT, three-tier safety, comptime everything, cross-compile to anything.
+          One toolchain. <span style="color:var(--cyan-primary)">Mission complete.</span>
+        </p>
+      </div>
+
+      <div class="col">
+        <h4>Documentation</h4>
+        <ul>
+          <li><a href="/docs/language-reference.html">Language Reference</a></li>
+          <li><a href="/docs/standard-library.html">Standard Library</a></li>
+          <li><a href="/docs/comptime-guide.html">Comptime Guide</a></li>
+          <li><a href="/docs/borrow-checker.html">Borrow Checker</a></li>
+          <li><a href="/docs/abi-specification.html">ABI Specification</a></li>
+        </ul>
+      </div>
+
+      <div class="col">
+        <h4>Tooling</h4>
+        <ul>
+          <li><a href="/tools.html">Overview</a></li>
+          <li><a href="/docs/gw-cli.html">gw CLI</a></li>
+          <li><a href="/docs/gw-repl.html">gw repl</a></li>
+          <li><a href="/docs/gw-pkg.html">gw pkg</a></li>
+          <li><a href="/docs/lsp-editor.html">LSP / Editor Plugins</a></li>
+        </ul>
+      </div>
+
+      <div class="col">
+        <h4>Channels</h4>
+        <ul>
+          <li><a href="/community.html">Community</a></li>
+          <li><a href="#">GitHub</a></li>
+          <li><a href="#">Discord</a></li>
+          <li><a href="#">Mailing List</a></li>
+          <li><a href="#">Roadmap</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="stamp">
+      <div class="left">© 2026 // GW LANGUAGE PROJECT</div>
+      <div class="center">▶ Tactical Systems // SYSTEM DIVISION</div>
+      <div class="right">BUILD 1.0.0 // gw abc1234</div>
+    </div>
+  </div>
+</footer>
+
+<script type="module" src="/main.js"></script>
+
+</body>
+</html>

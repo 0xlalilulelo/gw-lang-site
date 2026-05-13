@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>arsenal CLI — GW // Arsenal</title>
+<title>GW-CORE CLI — GW // GW-CORE</title>
 <link rel="stylesheet" href="/style.css">
 <script type="module" src="/docs.js"></script>
 </head>
@@ -17,7 +17,7 @@
     <div class="breadcrumb">
       <a href="/">Home</a> <span>/</span> <span>Docs</span>
     </div>
-    <h1>arsenal CLI</h1>
+    <h1>GW-CORE CLI</h1>
     <div class="doc-tag">CLI // 006</div>
   </header>
 
@@ -35,36 +35,36 @@
     <div class="doc-content reveal">
       <section id="overview">
         <h2>Overview</h2>
-        <p>The <code>arsenal</code> binary is the single entry point for the entire GW toolchain. It includes the compiler, package manager, formatter, documentation generator, and LSP server.</p>
+        <p>The <code>GW-CORE</code> binary is the single entry point for the entire GW toolchain. It includes the compiler, package manager, formatter, documentation generator, and LSP server.</p>
         <p>Every subcommand is designed to be fast and responsive, following the philosophy of "one tool for the job."</p>
       </section>
 
       <section id="build-commands">
         <h2>Build & Run</h2>
         <ul>
-          <li><strong><code>arsenal build [path]</code></strong>: Builds the project at the specified path (default is <code>.</code>).</li>
-          <li><strong><code>arsenal run [path] -- [args]</code></strong>: Builds and executes the resulting binary.</li>
-          <li><strong><code>arsenal test [filter]</code></strong>: Discovers and runs tests, with support for glob filtering.</li>
-          <li><strong><code>arsenal bench [filter]</code></strong>: Runs benchmarks with statistical outlier removal.</li>
+          <li><strong><code>GW-CORE build [path]</code></strong>: Builds the project at the specified path (default is <code>.</code>).</li>
+          <li><strong><code>GW-CORE run [path] -- [args]</code></strong>: Builds and executes the resulting binary.</li>
+          <li><strong><code>GW-CORE test [filter]</code></strong>: Discovers and runs tests, with support for glob filtering.</li>
+          <li><strong><code>GW-CORE bench [filter]</code></strong>: Runs benchmarks with statistical outlier removal.</li>
         </ul>
       </section>
 
       <section id="tooling">
         <h2>Development Tools</h2>
         <ul>
-          <li><strong><code>arsenal fmt [path]</code></strong>: Formats files in place using the standard style guide.</li>
-          <li><strong><code>arsenal doc [path]</code></strong>: Generates structured documentation (Markdown/HTML/JSON).</li>
-          <li><strong><code>arsenal lsp</code></strong>: Starts the Language Server Protocol (LSP) server on <code>stdio</code>.</li>
-          <li><strong><code>arsenal codec</code></strong>: Starts the interactive REPL environment.</li>
+          <li><strong><code>GW-CORE fmt [path]</code></strong>: Formats files in place using the standard style guide.</li>
+          <li><strong><code>GW-CORE doc [path]</code></strong>: Generates structured documentation (Markdown/HTML/JSON).</li>
+          <li><strong><code>GW-CORE lsp</code></strong>: Starts the Language Server Protocol (LSP) server on <code>stdio</code>.</li>
+          <li><strong><code>GW-CORE repl</code></strong>: Starts the interactive REPL environment.</li>
         </ul>
       </section>
 
       <section id="package-mgmt">
         <h2>Package Management</h2>
         <ul>
-          <li><strong><code>arsenal cipher add &lt;pkg&gt;</code></strong>: Adds a dependency to <code>MotherBase.gw</code>.</li>
-          <li><strong><code>arsenal cipher install</code></strong>: Resolves and installs all dependencies.</li>
-          <li><strong><code>arsenal cipher update</code></strong>: Updates dependencies to their latest compatible versions.</li>
+          <li><strong><code>GW-CORE gw pkg add &lt;pkg&gt;</code></strong>: Adds a dependency to <code>MotherBase.gw</code>.</li>
+          <li><strong><code>GW-CORE gw pkg install</code></strong>: Resolves and installs all dependencies.</li>
+          <li><strong><code>GW-CORE gw pkg update</code></strong>: Updates dependencies to their latest compatible versions.</li>
         </ul>
       </section>
 
@@ -73,9 +73,9 @@
           <span class="label">Previous</span>
           <span class="title">ABI Specification</span>
         </a>
-        <a href="/docs/codec-repl.html">
+        <a href="/docs/repl-repl.html">
           <span class="label">Next</span>
-          <span class="title">codec REPL</span>
+          <span class="title">repl REPL</span>
         </a>
       </div>
     </div>

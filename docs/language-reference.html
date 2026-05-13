@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Language Reference — GW // Arsenal</title>
+<title>Language Reference — GW // GW-CORE</title>
 <link rel="stylesheet" href="/style.css">
 <script type="module" src="/docs.js"></script>
 </head>
@@ -47,7 +47,7 @@
                           Resolver  (name binding, frequency graph)
                               │
                               ▼
-                          Type Checker  (bidirectional, cipher resolution)
+                          Type Checker  (bidirectional, gw pkg resolution)
                               │
                               ▼
                           Comptime Engine  (interleaves with type check)
@@ -91,8 +91,8 @@
 
       <section id="type-system">
         <h2>Type System</h2>
-        <p>GW uses <strong>bidirectional type inference</strong>. This algorithm is preferred for its localized error messages and its ability to handle cipher trait bounds and overloading via UFCS.</p>
-        <p>Monomorphization: each generic function produces a fresh specialized function, cached in a global instantiation table. Cipher bounds are solved at instantiation time.</p>
+        <p>GW uses <strong>bidirectional type inference</strong>. This algorithm is preferred for its localized error messages and its ability to handle gw pkg trait bounds and overloading via UFCS.</p>
+        <p>Monomorphization: each generic function produces a fresh specialized function, cached in a global instantiation table. gw pkg bounds are solved at instantiation time.</p>
       </section>
 
       <section id="ir-design">

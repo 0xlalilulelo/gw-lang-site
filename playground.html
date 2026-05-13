@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GW Playground</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#050709">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=VT323&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/playground.css">
+</head>
+<body class="play-mode">
+
+<div class="grid-bg"></div>
+<div class="scan-beam"></div>
+
+<!-- NAV -->
+<nav class="top">
+  <div class="inner">
+    <a href="/" class="brand-mark">
+      <div class="mark-box">GW</div>
+      <span class="brand-meta">v1.0 // SYSTEM</span>
+    </a>
+    <ul>
+      <li><a href="/index.html#briefing">Briefing</a></li>
+      <li><a href="/index.html#capabilities">Capabilities</a></li>
+      <li><a href="/index.html#code">Specimen</a></li>
+      <li><a href="/index.html#specs">Specs</a></li>
+      <li><a href="/index.html#install">Deploy</a></li>
+      <li><a href="learn.html">Learn</a></li>
+      <li><a href="playground.html" class="active">Playground</a></li>
+      <li><a href="/tools.html">Tools</a></li>
+      <li><a href="/community.html">Community</a></li>
+    </ul>
+    <a href="/index.html#install" class="nav-cta">Get GW</a>
+  </div>
+</nav>
+
+<main class="pg-container">
+  <!-- Toolbar -->
+  <header class="pg-toolbar">
+    <div class="pg-controls-left">
+      <button id="btn-run" class="btn btn-primary pg-btn">
+        <span class="icon">▶</span> Run
+      </button>
+      
+      <div class="pg-select-wrapper">
+        <select id="sel-tier">
+          <option value="safe">Tier: Safe</option>
+          <option value="manual">Tier: Manual</option>
+          <option value="unsafe">Tier: Unsafe</option>
+        </select>
+      </div>
+
+      <div class="pg-select-wrapper">
+        <select id="sel-mode">
+          <option value="debug">Mode: Debug</option>
+          <option value="fast">Mode: Fast</option>
+          <option value="small">Mode: Small</option>
+        </select>
+      </div>
+    </div>
+    
+    <div class="pg-controls-right">
+      <button id="btn-share" class="btn btn-secondary pg-btn">
+        <span class="icon">➦</span> Share
+      </button>
+    </div>
+  </header>
+
+  <!-- Split Pane Layout -->
+  <div class="pg-workspace">
+    <div class="pg-pane pg-editor-pane">
+      <div class="pane-header">
+        <span class="pane-title">main.gw</span>
+        <span class="pane-status" id="editor-status">Ready</span>
+      </div>
+      <div id="editor-container"></div>
+    </div>
+    
+    <div class="pg-resizer" id="pg-resizer"></div>
+
+    <div class="pg-pane pg-console-pane">
+      <div class="pane-header">
+        <span class="pane-title">Terminal // Execution Output</span>
+        <button id="btn-clear" class="clear-btn">Clear</button>
+      </div>
+      <div id="console-output" class="terminal-body">
+<span class="prompt">$</span> <span class="dim">gw run main.gw</span>
+<span class="out">Waiting for operator input...</span>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script type="module" src="/playground.js"></script>
+
+</body>
+</html>

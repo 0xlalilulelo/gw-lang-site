@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>codec REPL — GW // Arsenal</title>
+<title>repl REPL — GW // GW-CORE</title>
 <link rel="stylesheet" href="/style.css">
 <script type="module" src="/docs.js"></script>
 </head>
@@ -17,8 +17,8 @@
     <div class="breadcrumb">
       <a href="/">Home</a> <span>/</span> <span>Docs</span>
     </div>
-    <h1>codec REPL</h1>
-    <div class="doc-tag">CDC // 007</div>
+    <h1>repl REPL</h1>
+    <div class="doc-tag">REPL // 01</div>
   </header>
 
   <div class="doc-grid">
@@ -35,7 +35,7 @@
     <div class="doc-content reveal">
       <section id="overview">
         <h2>Overview</h2>
-        <p>The <code>codec</code> REPL is the GW compiler running in JIT mode. It provides an interactive environment for rapid prototyping and experimentation.</p>
+        <p>The <code>repl</code> REPL is the GW compiler running in JIT mode. It provides an interactive environment for rapid prototyping and experimentation.</p>
         <p>Each line is parsed and immediately compiled. Top-level declarations are added to the session, while expressions are wrapped in synthetic functions and invoked.</p>
       </section>
 
@@ -46,7 +46,7 @@
           <li><strong>Symbol Table</strong>: Tracks all defined variables and functions.</li>
           <li><strong>Type Table</strong>: Stores resolved type information for the session.</li>
           <li><strong>JIT Module</strong>: Manages the machine code regions in memory.</li>
-          <li><strong>History</strong>: Persisted to <code>~/.arsenal/codec_history</code> for continuity.</li>
+          <li><strong>History</strong>: Persisted to <code>~/.GW-CORE/repl_history</code> for continuity.</li>
         </ul>
       </section>
 
@@ -67,13 +67,13 @@
       </section>
 
       <div class="doc-footer-nav">
-        <a href="/docs/arsenal-cli.html">
+        <a href="/docs/GW-CORE-cli.html">
           <span class="label">Previous</span>
-          <span class="title">arsenal CLI</span>
+          <span class="title">GW-CORE CLI</span>
         </a>
-        <a href="/docs/cipher-package-mgr.html">
+        <a href="/docs/gw pkg-package-mgr.html">
           <span class="label">Next</span>
-          <span class="title">cipher Package Mgr</span>
+          <span class="title">gw pkg</span>
         </a>
       </div>
     </div>

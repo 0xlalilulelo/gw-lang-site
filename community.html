@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Community — GW // SYSTEM</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#050709">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=VT323&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<style>
+  .page-hero {
+    padding: 140px 20px 60px;
+    text-align: center;
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .comm-section {
+    max-width: 1100px;
+    margin: 0 auto 80px;
+    padding: 0 32px;
+  }
+  .comm-header {
+    font-family: var(--display);
+    font-size: 32px;
+    color: var(--text-primary);
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid var(--border-dim);
+    padding-bottom: 15px;
+  }
+  .comm-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+  }
+  .comm-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-dim);
+    padding: 30px;
+    position: relative;
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+  }
+  .comm-card:hover {
+    border-color: var(--cyan-primary);
+    box-shadow: 0 0 15px rgba(79, 195, 247, 0.1);
+  }
+  .comm-card h3 {
+    font-family: var(--mono);
+    font-size: 18px;
+    color: var(--cyan-primary);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+  }
+  .comm-card p {
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.6;
+    flex-grow: 1;
+    margin-bottom: 25px;
+  }
+  .comm-card .btn {
+    align-self: flex-start;
+  }
+</style>
+</head>
+<body>
+
+<div class="grid-bg"></div>
+<div class="scan-beam"></div>
+
+<!-- NAV -->
+<nav class="top">
+  <div class="inner">
+    <a href="/" class="brand-mark">
+      <div class="mark-box">GW</div>
+      <span class="brand-meta">v1.0 // SYSTEM</span>
+    </a>
+    <ul>
+      <li><a href="/index.html#briefing">Briefing</a></li>
+      <li><a href="/index.html#capabilities">Capabilities</a></li>
+      <li><a href="/index.html#code">Specimen</a></li>
+      <li><a href="/index.html#specs">Specs</a></li>
+      <li><a href="/index.html#install">Deploy</a></li>
+      <li><a href="learn.html">Learn</a></li>
+      <li><a href="playground.html">Playground</a></li>
+      <li><a href="tools.html">Tools</a></li>
+      <li><a href="community.html" class="active">Community</a></li>
+    </ul>
+    <a href="/index.html#install" class="nav-cta">Get GW</a>
+  </div>
+</nav>
+
+<header class="page-hero">
+  <h1 class="tagline">The GW <span class="accent">Operator Network</span></h1>
+  <p class="sub">
+    We are a decentralized community of systems programmers, game engine developers, and hardware hackers. Whether you are seeking intel, reporting a bug, or contributing to the core compiler, you are welcome here.
+  </p>
+</header>
+
+<div class="comm-section">
+  <h2 class="comm-header">Secure Comms (Where to Connect)</h2>
+  <div class="comm-grid">
+    <div class="comm-card bracketed">
+      <span class="corner tl"></span><span class="corner br"></span>
+      <h3>Discord</h3>
+      <p>The primary tactical comms channel. Chat with other operators, get help with your code, and participate in live language design discussions.</p>
+      <a href="#" class="btn btn-secondary">Join Discord <span class="arrow">▸</span></a>
+    </div>
+    
+    <div class="comm-card bracketed">
+      <span class="corner tl"></span><span class="corner br"></span>
+      <h3>GitHub Discussions</h3>
+      <p>The central hub for async Q&A, RFC proposals, and long-form troubleshooting. Perfect for searching through past intelligence.</p>
+      <a href="#" class="btn btn-secondary">Browse Forum <span class="arrow">▸</span></a>
+    </div>
+
+    <div class="comm-card bracketed">
+      <span class="corner tl"></span><span class="corner br"></span>
+      <h3>Matrix Space</h3>
+      <p>An alternative, decentralized chat network bridged directly to our Discord channels for those who prefer open protocols.</p>
+      <a href="#" class="btn btn-secondary">Connect via Matrix <span class="arrow">▸</span></a>
+    </div>
+  </div>
+</div>
+
+<div class="comm-section">
+  <h2 class="comm-header">Governance &amp; Intelligence</h2>
+  <div class="comm-grid">
+    <div class="comm-card bracketed amber">
+      <span class="corner tr"></span><span class="corner bl"></span>
+      <h3 style="color: var(--amber);">Architecture Group</h3>
+      <p>The core team responsible for the language specification, standard library design, and final sign-off on RFCs. Meetings are open to the public.</p>
+      <a href="#" class="btn btn-secondary" style="border-color: var(--amber); color: var(--amber);">Read Minutes <span class="arrow">▸</span></a>
+    </div>
+    
+    <div class="comm-card bracketed amber">
+      <span class="corner tr"></span><span class="corner bl"></span>
+      <h3 style="color: var(--amber);">Working Groups</h3>
+      <p>Specialized task forces dedicated to specific domains: Game Development, Embedded Systems, Networking, and WebAssembly targets.</p>
+      <a href="#" class="btn btn-secondary" style="border-color: var(--amber); color: var(--amber);">View Squads <span class="arrow">▸</span></a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="top-grid">
+      <div class="brand-block">
+        <div class="lockup">GW</div>
+        <p class="desc">
+          A tactical systems programming language.
+          Single-pass JIT, three-tier safety, comptime everything, cross-compile to anything.
+          One toolchain. <span style="color:var(--cyan-primary)">Mission complete.</span>
+        </p>
+      </div>
+
+      <div class="col">
+        <h4>Documentation</h4>
+        <ul>
+          <li><a href="/docs/language-reference.html">Language Reference</a></li>
+          <li><a href="/docs/standard-library.html">Standard Library</a></li>
+          <li><a href="/docs/comptime-guide.html">Comptime Guide</a></li>
+          <li><a href="/docs/borrow-checker.html">Borrow Checker</a></li>
+          <li><a href="/docs/abi-specification.html">ABI Specification</a></li>
+        </ul>
+      </div>
+
+      <div class="col">
+        <h4>Tooling</h4>
+        <ul>
+          <li><a href="tools.html">Overview</a></li>
+          <li><a href="#">gw CLI</a></li>
+          <li><a href="#">gw repl</a></li>
+          <li><a href="#">gw pkg</a></li>
+          <li><a href="#">gw lsp</a></li>
+        </ul>
+      </div>
+
+      <div class="col">
+        <h4>Channels</h4>
+        <ul>
+          <li><a href="community.html">Community</a></li>
+          <li><a href="#">GitHub</a></li>
+          <li><a href="#">Discord</a></li>
+          <li><a href="#">Security</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="stamp">
+      <div class="left">© 2026 // GW LANGUAGE PROJECT</div>
+      <div class="center">▶ Tactical Systems // SYSTEM DIVISION</div>
+      <div class="right">BUILD 1.0.0 // gw abc1234</div>
+    </div>
+  </div>
+</footer>
+
+<script type="module" src="/main.js"></script>
+
+</body>
+</html>

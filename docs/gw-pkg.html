@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>cipher Package Mgr — GW // Arsenal</title>
+<title>gw pkg — GW // GW-CORE</title>
 <link rel="stylesheet" href="/style.css">
 <script type="module" src="/docs.js"></script>
 </head>
@@ -17,7 +17,7 @@
     <div class="breadcrumb">
       <a href="/">Home</a> <span>/</span> <span>Docs</span>
     </div>
-    <h1>cipher Package Mgr</h1>
+    <h1>gw pkg</h1>
     <div class="doc-tag">CPH // 008</div>
   </header>
 
@@ -35,7 +35,7 @@
     <div class="doc-content reveal">
       <section id="overview">
         <h2>Overview</h2>
-        <p>The <code>cipher</code> package manager is built directly into the <code>arsenal</code> toolchain. It manages dependencies, version resolution, and package distribution for GW projects.</p>
+        <p>The <code>gw pkg</code> package manager is built directly into the <code>GW-CORE</code> toolchain. It manages dependencies, version resolution, and package distribution for GW projects.</p>
         <p>Following the "batteries included" philosophy, it supports Git repositories as first-class dependencies alongside a community-run registry.</p>
       </section>
 
@@ -46,7 +46,7 @@
         <div class="panel bracketed">
           <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
           <pre><code class="tk-keyword">#virtuous</code> {
-    <code class="tk-variable">package</code> = <code class="tk-string">"snake-eater"</code>;
+    <code class="tk-variable">package</code> = <code class="tk-string">"Operator-eater"</code>;
     <code class="tk-variable">version</code> = <code class="tk-string">"0.3.1"</code>;
     <code class="tk-variable">dependencies</code> = .{
         <code class="tk-string">"philosophers/net"</code>: .{ .version = <code class="tk-string">"1.x"</code> },
@@ -64,7 +64,7 @@
 
       <section id="security">
         <h2>Integrity & Security</h2>
-        <p>Security is a core priority for the <code>cipher</code> manager:</p>
+        <p>Security is a core priority for the <code>gw pkg</code> manager:</p>
         <ul>
           <li><strong>Cryptographic Hashing</strong>: All packages are verified against hashes in the lockfile.</li>
           <li><strong>Signed Releases</strong>: Official registry packages are cryptographically signed.</li>
@@ -73,9 +73,9 @@
       </section>
 
       <div class="doc-footer-nav">
-        <a href="/docs/codec-repl.html">
+        <a href="/docs/repl-repl.html">
           <span class="label">Previous</span>
-          <span class="title">codec REPL</span>
+          <span class="title">repl REPL</span>
         </a>
         <a href="/docs/lsp-editor.html">
           <span class="label">Next</span>

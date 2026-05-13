@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Standard Library — GW // Arsenal</title>
+<title>Standard Library — GW // GW-CORE</title>
 <link rel="stylesheet" href="/style.css">
 <script type="module" src="/docs.js"></script>
 </head>
@@ -47,12 +47,12 @@
             </thead>
             <tbody>
               <tr><td><code>philosophers.mem</code></td><td>Allocators and memory primitives</td></tr>
-              <tr><td><code>philosophers.io</code></td><td>Generic Reader/Writer ciphers</td></tr>
+              <tr><td><code>philosophers.io</code></td><td>Generic Reader/Writer gw pkgs</td></tr>
               <tr><td><code>philosophers.fs</code></td><td>File system and path manipulation</td></tr>
               <tr><td><code>philosophers.net</code></td><td>TCP/UDP, HTTP/1.1, TLS</td></tr>
               <tr><td><code>philosophers.fox</code></td><td>Task spawning, channels, nurseries</td></tr>
               <tr><td><code>philosophers.fmt</code></td><td>Print and format string engine</td></tr>
-              <tr><td><code>philosophers.codec</code></td><td>JSON/TOML/Binary serialization</td></tr>
+              <tr><td><code>philosophers.repl</code></td><td>JSON/TOML/Binary serialization</td></tr>
               <tr><td><code>philosophers.math</code></td><td>Numeric and vector math</td></tr>
             </tbody>
           </table>
@@ -61,11 +61,11 @@
 
       <section id="allocators">
         <h2>Allocators</h2>
-        <p>GW uses explicit allocator passing. The <code>Arsenal</code> cipher defines the interface for all memory allocation strategies.</p>
+        <p>GW uses explicit allocator passing. The <code>GW-CORE</code> gw pkg defines the interface for all memory allocation strategies.</p>
         
         <div class="panel bracketed">
           <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
-          <pre><code class="tk-keyword">cipher</code> <code class="tk-type">Arsenal</code> {
+          <pre><code class="tk-keyword">gw pkg</code> <code class="tk-type">GW-CORE</code> {
     <code class="tk-keyword">fn</code> <code class="tk-function">alloc</code>(self: &mut Self, layout: Layout) -> !AllocError [*]u8;
     <code class="tk-keyword">fn</code> <code class="tk-function">realloc</code>(self: &mut Self, ptr: [*]u8, old: Layout, new: Layout) -> !AllocError [*]u8;
     <code class="tk-keyword">fn</code> <code class="tk-function">free</code>(self: &mut Self, ptr: [*]u8, layout: Layout);
@@ -86,7 +86,7 @@
         <p>The <code>fox</code> task scheduler provides M:N work-stealing concurrency, modeled on a hybrid of Tokio and Go.</p>
         <ul>
           <li><strong>M:N Scheduler</strong>: One OS thread per CPU core with local deques.</li>
-          <li><strong>Channels</strong>: Bounded MPMC channels (<code>codec_channel<T></code>) with Vyukov-style ring buffers.</li>
+          <li><strong>Channels</strong>: Bounded MPMC channels (<code>channel<T></code>) with Vyukov-style ring buffers.</li>
           <li><strong>Structured Concurrency</strong>: Using <code>nursery</code> blocks for scoped task lifetimes.</li>
         </ul>
       </section>

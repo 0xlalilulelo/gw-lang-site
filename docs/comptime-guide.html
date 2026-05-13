@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Comptime Guide — GW // Arsenal</title>
+<title>Comptime Guide — GW // GW-CORE</title>
 <link rel="stylesheet" href="/style.css">
 <script type="module" src="/docs.js"></script>
 </head>
@@ -63,7 +63,7 @@
         <h2>Reflection API</h2>
         <p>Types are first-class values at comptime. You can inspect class fields, attributes, and signatures using reflection intrinsics.</p>
         <ul>
-          <li><strong><code>@codec(T)</code></strong>: Returns <code>TypeInfo</code> for a type, mirroring the language's internal representation.</li>
+          <li><strong><code>@repl(T)</code></strong>: Returns <code>TypeInfo</code> for a type, mirroring the language's internal representation.</li>
           <li><strong><code>@field(v, "name")</code></strong>: Accesses a field by string name, resolved at compile time.</li>
           <li><strong><code>@call(f, args)</code></strong>: Dynamically dispatches a function call with a tuple of arguments.</li>
         </ul>
